@@ -13,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Attribute {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -23,5 +24,10 @@ public class Attribute {
     private String type;
     @Column(nullable = false)
     private String value;
+    public Attribute(Product product,String type,String value){
+        this.product=product;
+        this.type=type;
+        this.value=value;
+    }
 
 }

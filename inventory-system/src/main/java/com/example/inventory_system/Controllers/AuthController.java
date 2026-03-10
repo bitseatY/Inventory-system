@@ -1,22 +1,23 @@
 package com.example.inventory_system.Controllers;
 
-import com.example.inventory_system.Services.UserService;
+import com.example.inventory_system.Dtos.LoginRequest;
+import com.example.inventory_system.Services.AuthService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
-    private UserService userService;
+    private AuthService authService;
 
     @PostMapping("/register")
     public void  register(@RequestParam String username, @RequestParam String password){
-        userService.register(username,password);
+        authService.register(username,password);
     }
-
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest loginRequest){
+       return    authService.login(loginRequest.getUsername(),loginRequest.getPassword());
+    }
 }

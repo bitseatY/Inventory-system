@@ -24,11 +24,12 @@ public class StockChange {
     @JoinColumn(name = "pro_id")
     private Product product;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private StockChangeReason reason;
     @Column(nullable = false)
     private LocalDateTime actionTime;
     @Column(nullable = false)
-    private BigInteger quantity;
+    private int quantity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "agent_id")
