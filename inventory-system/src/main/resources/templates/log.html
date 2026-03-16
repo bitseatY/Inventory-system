@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title> products transaction log</title>
+</head>
+<body>
+       <table>
+           <thead>
+           <tr>
+               <th>pro-id</th>
+               <th>pro-name</th>
+               <th>reason</th>
+               <th>quantity change</th>
+               <th>agent-name</th>
+               <th>action-time</th>
+           </tr>
+           </thead>
+           <tbody>
+           <tr th:each="st:${StockChanges}">
+               <td th:text="${st.product.id}"></td>
+               <td th:text="${st.product.name}"></td>
+               <td th:text="${st.reason}"></td>
+               <td th:text="${st.quantity}"></td>
+               <td th:text="${st.agent.username}"></td>
+               <td th:text="${st.actionTime}"></td>
+
+
+           </tr>
+           </tbody>
+
+       </table>
+
+
+
+
+
+
+
+</body>
+</html>

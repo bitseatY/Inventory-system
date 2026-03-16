@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class Product {
     @Column(nullable = false )
     private String description;
     @Column(nullable = false)
-    private BigInteger sellingPrice;
+    private BigDecimal sellingPrice;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Attribute> attributes;
     @ManyToOne(fetch = FetchType.LAZY)

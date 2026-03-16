@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update product info</title>
+</head>
+<body>
+      <form action="update/product" method="post">
+          <label> Name:</label>
+          <input type="text" for="name" th:value="${user.name}"><br>
+          <label> Description: </label>
+          <input type="text" for="description" th:value="${user.description}"><br>
+          <label>Selling price :</label>>
+          <input type="number" for="sellingPrice" th:value="${user.sellingPrice}"><br>
+          <table>
+              <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+              </tr>
+              <tr th:each="attr, stat : *{attributes}">
+
+                  <td>
+                      <input type="text"
+                             th:field="*{attributes[__${stat.index}__].name}" />
+                  </td>
+
+                  <td>
+                      <input type="text"
+                             th:field="*{attributes[__${stat.index}__].value}" />
+                  </td>
+
+              </tr>
+
+
+
+
+
+
+
+          </table>
+
+
+</body>
+</html>
